@@ -20,6 +20,24 @@
         "value": "scroll",
         "createdAt": "2026-09-07T17:56:23.841Z",
         "reason": "Galeria en marquee elegida en el brief; pausa en hover y no bloquea el scroll"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "posada-la-pedrera/index.html"
+        ],
+        "createdAt": "2026-09-07T18:15:51.157Z",
+        "reason": "Paleta crema del brief aprobado, sampleada del cartel real"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "posada-la-pedrera/index.html"
+        ],
+        "createdAt": "2026-09-07T18:15:51.324Z",
+        "reason": "Galeria en marquee elegida en el brief; pausa en hover, no bloquea scroll"
       }
     ]
   }
