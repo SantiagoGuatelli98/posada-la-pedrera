@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "fraunces",
+        "createdAt": "2026-09-07T17:54:34.639Z",
+        "reason": "Fuente elegida y aprobada en el brief de /web-hustler para Posada La Pedrera: serif calida que combina con el cartel de la posada"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "rgb(243, 235, 219)",
+        "createdAt": "2026-09-07T17:56:23.589Z",
+        "reason": "Paleta del brief: crema sampleada del cartel y el estuco reales de la posada"
+      },
+      {
+        "rule": "marquee",
+        "value": "scroll",
+        "createdAt": "2026-09-07T17:56:23.841Z",
+        "reason": "Galeria en marquee elegida en el brief; pausa en hover y no bloquea el scroll"
+      }
+    ]
+  }
+}

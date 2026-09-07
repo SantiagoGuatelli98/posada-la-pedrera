@@ -75,7 +75,7 @@
   .nav.solid{background:rgba(243,235,219,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding-top:12px;padding-bottom:12px}
   .brand{display:flex;flex-direction:column;line-height:1;letter-spacing:.01em}
   .brand b{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.42rem}
-  .brand span{font-family:'Mulish',sans-serif;font-weight:700;font-size:.58rem;letter-spacing:.42em;text-transform:uppercase;color:var(--piedra);margin-top:3px;margin-left:2px}
+  .brand span{font-family:'Mulish',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--piedra);margin-top:4px;margin-left:2px}
   .nav.light .brand b,.nav.light .nav-links a{color:var(--crema-100)}
   .nav.light .brand span{color:rgba(250,246,236,.7)}
   .nav-links{display:flex;align-items:center;gap:30px}
@@ -214,8 +214,8 @@
     color:transparent;-webkit-text-stroke:2px rgba(250,246,236,.5);position:relative
   }
   .altura .bignum small{
-    -webkit-text-stroke:0;color:var(--terracota);font-size:.15em;letter-spacing:.14em;text-transform:uppercase;
-    display:block;font-family:'Mulish',sans-serif;font-weight:700;margin-top:1.1em;white-space:nowrap
+    -webkit-text-stroke:0;color:var(--terracota-300);font-size:clamp(.82rem,2vw,1.35rem);letter-spacing:.14em;text-transform:uppercase;
+    display:block;font-family:'Mulish',sans-serif;font-weight:700;margin-top:1.6rem;white-space:nowrap
   }
   .altura h2{font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:.5em}
   .altura p{color:rgba(250,246,236,.82);margin-bottom:1.4em;max-width:44ch}
@@ -232,7 +232,7 @@
   .zona .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.03)}
   .zona .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .zcard{background:var(--crema);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .zcard h4{font-size:1.12rem;margin-bottom:.3em}
+  .zcard h3{font-size:1.12rem;margin-bottom:.3em}
   .zcard p{font-size:.9rem;color:#6B5F50}
   .zcard .dist{font-weight:700;color:var(--terracota-600);font-size:.82rem;margin-top:.6em;display:block}
   .map-embed{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);position:relative}
@@ -296,7 +296,7 @@
   .foot .cta p{color:rgba(250,246,236,.8);margin-bottom:1.6em}
   .foot .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;border-top:1px solid rgba(250,246,236,.15);padding-top:44px}
   .foot .brand b{color:var(--crema-100)}
-  .foot h5{font-family:'Mulish',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--piedra);margin-bottom:14px}
+  .foot h3{font-family:'Mulish',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--piedra);margin-bottom:14px}
   .foot a.line,.foot p.line{display:block;color:rgba(250,246,236,.82);font-size:.92rem;margin-bottom:8px;transition:color .2s}
   .foot a.line:hover{color:var(--terracota)}
   .foot .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:44px;font-size:.76rem;color:rgba(250,246,236,.45)}
@@ -313,7 +313,7 @@
   }
   .demotag button{background:none;border:0;color:rgba(250,246,236,.6);cursor:pointer;font-size:.9rem;line-height:1}
   .demotag .dot{width:7px;height:7px;border-radius:50%;background:var(--terracota);flex:none}
-  @media(max-width:600px){.demotag{left:10px;bottom:10px;font-size:.64rem}}
+  @media(max-width:600px){.demotag{left:10px;bottom:10px;font-size:.7rem}}
 </style>
 </head>
 <body>
@@ -492,10 +492,10 @@
     <div class="top">
       <div class="ph rv"><img src="img/zona-champaqui.webp" alt="Cumbre del Cerro Champaquí, sierras de Córdoba"></div>
       <div class="cards rv">
-        <div class="zcard"><h4>Trekking al Champaquí</h4><p>La subida al techo de Córdoba arranca en la zona. Cabalgatas y caminatas de día completo.</p><span class="dist">Cumbre a 2790 m</span></div>
-        <div class="zcard"><h4>Arroyo y balneario</h4><p>Agua de sierra, piedras planas y sombra de sauces para pasar la tarde.</p><span class="dist">A pocos minutos</span></div>
-        <div class="zcard"><h4>El centro a pie</h4><p>Almacenes, panadería y ferias artesanales sin sacar el auto.</p><span class="dist">2 cuadras</span></div>
-        <div class="zcard"><h4>Villa General Belgrano</h4><p>La Oktoberfest y el circuito de Calamuchita, para una escapada de un día.</p><span class="dist">~40 min</span></div>
+        <div class="zcard"><h3>Trekking al Champaquí</h3><p>La subida al techo de Córdoba arranca en la zona. Cabalgatas y caminatas de día completo.</p><span class="dist">Cumbre a 2790 m</span></div>
+        <div class="zcard"><h3>Arroyo y balneario</h3><p>Agua de sierra, piedras planas y sombra de sauces para pasar la tarde.</p><span class="dist">A pocos minutos</span></div>
+        <div class="zcard"><h3>El centro a pie</h3><p>Almacenes, panadería y ferias artesanales sin sacar el auto.</p><span class="dist">2 cuadras</span></div>
+        <div class="zcard"><h3>Villa General Belgrano</h3><p>La Oktoberfest y el circuito de Calamuchita, para una escapada de un día.</p><span class="dist">~40 min</span></div>
       </div>
     </div>
     <div class="map-embed rv">
@@ -791,14 +791,14 @@
         <p class="line" style="margin-top:14px">Villa Yacanto, Valle de Calamuchita,<br>Córdoba, Argentina.</p>
       </div>
       <div>
-        <h5>Contacto</h5>
+        <h3>Contacto</h3>
         <a class="line" href="https://wa.me/5491161457381" target="_blank" rel="noopener">WhatsApp · Lucy</a>
         <a class="line" href="tel:+5493546482090">Tel · Nancy 03546 48-2090</a>
         <a class="line" href="https://www.instagram.com/_posadalapedrera_/" target="_blank" rel="noopener">Instagram</a>
         <a class="line" href="https://www.facebook.com/lapedreravillayacanto/" target="_blank" rel="noopener">Facebook</a>
       </div>
       <div>
-        <h5>La posada</h5>
+        <h3>La posada</h3>
         <a class="line" href="#deptos">Departamentos</a>
         <a class="line" href="#altura">Restó 2790</a>
         <a class="line" href="#zona">La zona</a>
