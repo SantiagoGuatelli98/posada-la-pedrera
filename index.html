@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posada La Pedrera · Villa Yacanto, al pie del Champaquí</title>
+<meta name="description" content="Posada de familia en Villa Yacanto, Valle de Calamuchita. Departamentos con kitchenette, pileta, restó propio y las sierras a un paso. A dos cuadras del centro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pizarra:#5E6B73;
+    --pizarra-900:#39434A;
+    --terracota:#A9502E;
+    --terracota-300:#D98A5C;
+    --terracota-600:#8F3F21;
+    --piedra:#9C8B76;
+    --crema:#F3EBDB;
+    --crema-100:#FAF6EC;
+    --espresso:#2B2622;
+    --monte:#6E7850;
+    --line:rgba(43,38,34,.14);
+    --shadow:0 18px 50px -20px rgba(43,38,34,.35);
+    --maxw:1180px;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+  body{
+    font-family:'Mulish',system-ui,sans-serif;
+    color:var(--espresso);
+    background:var(--crema);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.08;letter-spacing:-.01em}
+  section{position:relative}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+  .kicker{
+    font-family:'Mulish',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--terracota-600);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;justify-content:center;
+    font-family:'Mulish',sans-serif;font-weight:700;font-size:.95rem;
+    padding:.95em 1.6em;border-radius:100px;cursor:pointer;border:1.6px solid transparent;
+    transition:transform .25s var(--ease),background .25s,color .25s,box-shadow .25s;
+  }
+  .btn-primary{background:var(--terracota);color:var(--crema-100);box-shadow:0 10px 22px -14px rgba(43,38,34,.5)}
+  .btn-primary:hover{transform:translateY(-3px);background:var(--terracota-600)}
+  .btn-ghost{background:transparent;color:var(--espresso);border-color:rgba(43,38,34,.35)}
+  .btn-ghost:hover{border-color:var(--espresso);transform:translateY(-3px)}
+  .btn-wa{background:#25D366;color:#0b3d24}
+  .btn-wa:hover{transform:translateY(-3px);background:#1fbb59}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1!important;transform:none!important;transition:none}
+    *{scroll-behavior:auto!important}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:60;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px clamp(20px,5vw,48px);
+    transition:background .3s,backdrop-filter .3s,box-shadow .3s,padding .3s;
+  }
+  .nav.solid{background:rgba(243,235,219,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding-top:12px;padding-bottom:12px}
+  .brand{display:flex;flex-direction:column;line-height:1;letter-spacing:.01em}
+  .brand b{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.42rem}
+  .brand span{font-family:'Mulish',sans-serif;font-weight:700;font-size:.58rem;letter-spacing:.42em;text-transform:uppercase;color:var(--piedra);margin-top:3px;margin-left:2px}
+  .nav.light .brand b,.nav.light .nav-links a{color:var(--crema-100)}
+  .nav.light .brand span{color:rgba(250,246,236,.7)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-weight:600;font-size:.92rem;position:relative;padding:4px 0}
+  .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--terracota);transition:width .3s var(--ease)}
+  .nav-links a:not(.btn):hover::after{width:100%}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;width:30px;height:22px;position:relative}
+  .nav-toggle span{position:absolute;left:0;width:100%;height:2px;background:currentColor;transition:.3s var(--ease)}
+  .nav-toggle span:nth-child(1){top:0}
+  .nav-toggle span:nth-child(2){top:10px}
+  .nav-toggle span:nth-child(3){top:20px}
+  .nav.light .nav-toggle{color:var(--crema-100)}
+
+  @media(max-width:900px){
+    .nav-toggle{display:block;z-index:70}
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:min(80vw,320px);
+      background:var(--espresso);flex-direction:column;justify-content:center;gap:26px;
+      transform:translateX(100%);transition:transform .4s var(--ease);
+    }
+    .nav-links a{color:var(--crema-100)!important;font-size:1.15rem}
+    body.menu-open .nav-links{transform:none}
+    body.menu-open .nav-toggle span{background:var(--crema-100)}
+    body.menu-open .nav-toggle span:nth-child(1){top:10px;transform:rotate(45deg)}
+    body.menu-open .nav-toggle span:nth-child(2){opacity:0}
+    body.menu-open .nav-toggle span:nth-child(3){top:10px;transform:rotate(-45deg)}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;isolation:isolate;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 62%}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(43,38,34,.55) 0%,rgba(43,38,34,.15) 30%,rgba(57,67,74,.35) 62%,rgba(43,38,34,.9) 100%);
+  }
+  .hero-ridge{position:absolute;left:0;right:0;bottom:0;z-index:-1;width:100%;height:auto;opacity:.9}
+  .hero-inner{padding-top:150px;padding-bottom:min(14vh,120px);max-width:var(--maxw);margin:0 auto;width:100%}
+  .hero-inner .wrap{padding-left:clamp(20px,5vw,48px);padding-right:clamp(20px,5vw,48px)}
+  .hero h1{
+    color:var(--crema-100);font-size:clamp(2.5rem,6.6vw,4.7rem);font-weight:500;
+    max-width:15ch;margin:.32em 0 .5em;text-shadow:0 2px 30px rgba(43,38,34,.4)
+  }
+  .hero p.lead{color:rgba(250,246,236,.92);font-size:clamp(1.02rem,1.7vw,1.24rem);max-width:44ch;margin-bottom:1.9em}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px}
+  .hero .kicker{color:var(--crema-100);opacity:.85;display:flex;align-items:center;gap:12px}
+  .hero .kicker::before{content:"";width:34px;height:1px;background:currentColor;display:inline-block}
+
+  /* altitude gauge */
+  .altgauge{
+    position:absolute;right:clamp(20px,5vw,48px);top:38%;z-index:1;text-align:right;
+    color:var(--crema-100);pointer-events:none;
+  }
+  .altgauge svg{position:absolute;right:0;top:-40px;width:180px;height:120px;overflow:visible}
+  .altgauge .contour{fill:none;stroke:var(--terracota);stroke-width:2.5;stroke-linecap:round;
+    stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 1px 3px rgba(43,38,34,.55))}
+  .altgauge .num{font-family:'Fraunces',serif;font-weight:500;font-size:2.5rem;line-height:1;font-variant-numeric:tabular-nums}
+  .altgauge .lbl{font-family:'Mulish',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+  @media(max-width:760px){.altgauge{display:none}}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{background:var(--espresso);color:var(--crema-100)}
+  .trust .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;align-items:center;justify-content:center;padding-top:22px;padding-bottom:22px;text-align:center}
+  .trust .item{display:flex;align-items:center;gap:10px;font-size:.92rem;font-weight:600}
+  .trust .item b{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem}
+  .trust .item .st{color:#E8B04B;letter-spacing:1px}
+  .trust .sep{width:1px;height:26px;background:rgba(250,246,236,.2)}
+  @media(max-width:700px){.trust .sep{display:none}}
+
+  /* ---------- SECTION SHELL ---------- */
+  .sec{padding:clamp(72px,11vw,140px) 0}
+  .sec-head{max-width:52ch;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(2rem,4.2vw,3.1rem);margin:.28em 0 .35em}
+  .sec-head p{color:#6B5F50;font-size:1.05rem}
+
+  /* ---------- LA POSADA (editorial asimétrico) ---------- */
+  .posada{background:var(--crema-100)}
+  .posada .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,6vw,80px);align-items:center}
+  .posada .story h2{font-size:clamp(2rem,4.4vw,3.2rem);margin:.3em 0 .6em}
+  .posada .story p{margin-bottom:1.1em;color:#4c4438;font-size:1.06rem;max-width:46ch}
+  .posada .story .sign{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--terracota-600);margin-top:.4em}
+  .posada .stack{position:relative;display:grid;gap:22px}
+  .posada .stack img{border-radius:14px;box-shadow:var(--shadow)}
+  .posada .stack .a{aspect-ratio:4/3;object-fit:cover}
+  .posada .stack .b{width:62%;margin-left:auto;margin-top:-64px;aspect-ratio:3/4;object-fit:cover;border:6px solid var(--crema-100)}
+  .posada .badge-stone{
+    position:absolute;left:-14px;bottom:26px;background:var(--terracota);color:var(--crema-100);
+    font-family:'Fraunces',serif;font-style:italic;font-size:.98rem;padding:12px 18px;border-radius:12px;
+    box-shadow:var(--shadow);max-width:190px;line-height:1.25
+  }
+  @media(max-width:820px){
+    .posada .grid{grid-template-columns:1fr}
+    .posada .stack .b{margin-top:-40px}
+  }
+
+  /* ---------- DEPARTAMENTOS ---------- */
+  .deptos{background:var(--crema)}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+  .tab{
+    font-family:'Mulish',sans-serif;font-weight:700;font-size:.9rem;padding:.7em 1.3em;border-radius:100px;
+    border:1.5px solid var(--line);background:transparent;cursor:pointer;transition:.25s var(--ease);color:#6B5F50
+  }
+  .tab[aria-selected="true"]{background:var(--espresso);color:var(--crema-100);border-color:var(--espresso)}
+  .tab:hover:not([aria-selected="true"]){border-color:var(--piedra)}
+  .panel{display:none}
+  .panel.on{display:block;animation:fade .45s var(--ease)}
+  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .depto{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:0;border-radius:18px;overflow:hidden;
+    background:var(--crema-100);box-shadow:var(--shadow);position:relative
+  }
+  .depto .ph{position:relative;overflow:hidden;min-height:340px}
+  .depto .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .depto:hover .ph img{transform:scale(1.05)}
+  .depto .body{padding:clamp(26px,4vw,44px);position:relative}
+  .depto h3{font-size:1.7rem;margin-bottom:.15em}
+  .depto .cap{color:var(--terracota-600);font-weight:700;font-size:.9rem;letter-spacing:.04em;margin-bottom:1.1em}
+  .depto ul{list-style:none;display:grid;gap:9px;margin-bottom:1.5em}
+  .depto li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem;color:#4c4438}
+  .depto li svg{flex:none;width:17px;height:17px;margin-top:3px;color:var(--monte)}
+  .depto .note{font-size:.82rem;color:#8a7d6c;font-style:italic}
+  /* magic-card spotlight */
+  .spot{position:relative}
+  .spot::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;
+    background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(169,80,46,.16),transparent 60%);
+  }
+  .spot:hover::before{opacity:1}
+  @media(max-width:780px){.depto{grid-template-columns:1fr}.depto .ph{min-height:230px;position:relative}}
+
+  /* ---------- 2790 ---------- */
+  .altura{background:var(--espresso);color:var(--crema-100);overflow:hidden}
+  .altura .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,70px);align-items:center}
+  .altura .bignum{
+    font-family:'Fraunces',serif;font-weight:500;font-size:clamp(7rem,20vw,15rem);line-height:.8;
+    color:transparent;-webkit-text-stroke:2px rgba(250,246,236,.5);position:relative
+  }
+  .altura .bignum small{
+    -webkit-text-stroke:0;color:var(--terracota);font-size:.15em;letter-spacing:.14em;text-transform:uppercase;
+    display:block;font-family:'Mulish',sans-serif;font-weight:700;margin-top:1.1em;white-space:nowrap
+  }
+  .altura h2{font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:.5em}
+  .altura p{color:rgba(250,246,236,.82);margin-bottom:1.4em;max-width:44ch}
+  .altura .meals{display:flex;flex-wrap:wrap;gap:10px}
+  .altura .meals span{
+    border:1.5px solid rgba(250,246,236,.25);border-radius:100px;padding:.5em 1.1em;font-size:.85rem;font-weight:600
+  }
+  @media(max-width:820px){.altura .grid{grid-template-columns:1fr}.altura .bignum{text-align:center}}
+
+  /* ---------- ZONA ---------- */
+  .zona{background:var(--crema-100)}
+  .zona .top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);align-items:center;margin-bottom:56px}
+  .zona .ph{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/4}
+  .zona .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.03)}
+  .zona .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .zcard{background:var(--crema);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .zcard h4{font-size:1.12rem;margin-bottom:.3em}
+  .zcard p{font-size:.9rem;color:#6B5F50}
+  .zcard .dist{font-weight:700;color:var(--terracota-600);font-size:.82rem;margin-top:.6em;display:block}
+  .map-embed{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);position:relative}
+  .map-embed iframe{width:100%;height:380px;border:0;display:block}
+  .map-embed .map-cta{position:absolute;right:14px;bottom:14px;background:var(--crema-100);color:var(--espresso);
+    font-weight:700;font-size:.82rem;padding:.6em 1.1em;border-radius:100px;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .map-embed .map-cta:hover{background:var(--terracota);color:var(--crema-100)}
+  @media(max-width:820px){.zona .top{grid-template-columns:1fr}.zona .cards{grid-template-columns:1fr}}
+
+  /* ---------- GALERIA (marquee) ---------- */
+  .galeria{background:var(--crema);padding-top:clamp(60px,9vw,110px);padding-bottom:clamp(60px,9vw,110px)}
+  .galeria .sec-head{padding:0 clamp(20px,5vw,48px);margin-left:auto;margin-right:auto;max-width:var(--maxw)}
+  .marquee{display:flex;flex-direction:column;gap:18px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .mrow{display:flex;gap:18px;width:max-content;animation:scroll 46s linear infinite}
+  .mrow.rev{animation-direction:reverse;animation-duration:54s}
+  .marquee:hover .mrow{animation-play-state:paused}
+  .mrow img{height:230px;width:auto;border-radius:12px;object-fit:cover;transition:transform .5s var(--ease),filter .5s}
+  .mrow img:hover{transform:scale(1.04)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  @media(max-width:640px){.mrow img{height:160px}}
+
+  /* ---------- OPINIONES ---------- */
+  .opiniones{background:var(--pizarra);color:var(--crema-100)}
+  .opiniones .sec-head .kicker{color:var(--terracota-300)}
+  .opiniones .sec-head h2{color:var(--crema-100)}
+  .opiniones .sec-head p{color:rgba(250,246,236,.8)}
+  .op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .op{background:rgba(250,246,236,.07);border:1px solid rgba(250,246,236,.14);border-radius:16px;padding:26px;backdrop-filter:blur(2px)}
+  .op .st{color:#E8B04B;letter-spacing:2px;font-size:.9rem;margin-bottom:.7em}
+  .op q{font-family:'Fraunces',serif;font-style:italic;font-size:1.08rem;display:block;margin-bottom:1em;line-height:1.4}
+  .op .who{font-size:.85rem;font-weight:700}
+  .op .src{font-size:.76rem;color:rgba(250,246,236,.6)}
+  @media(max-width:900px){.op-grid{grid-template-columns:1fr}}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--crema-100)}
+  .faq .wrap{max-width:820px}
+  .acc{border-top:1px solid var(--line)}
+  .acc-item{border-bottom:1px solid var(--line)}
+  .acc-q{width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:22px 40px 22px 0;
+    font-family:'Fraunces',serif;font-size:1.12rem;color:var(--espresso);position:relative;display:block}
+  .acc-q::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-family:'Mulish',sans-serif;font-size:1.4rem;color:var(--terracota);transition:transform .3s}
+  .acc-item.open .acc-q::after{transform:translateY(-50%) rotate(45deg)}
+  .acc-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+  .acc-a p{padding:0 0 22px;color:#6B5F50;font-size:.98rem;max-width:62ch}
+
+  /* ---------- RESERVAS ---------- */
+  .reservas{background:var(--crema)}
+  .reservas .inner{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,64px);align-items:start}
+  .reservas .pitch h2{font-size:clamp(2rem,4.2vw,3rem);margin:.3em 0 .5em}
+  .reservas .pitch p{color:#4c4438;margin-bottom:1em;max-width:40ch}
+  .reservas .pitch .li{display:flex;gap:11px;align-items:flex-start;margin-bottom:.7em;font-size:.96rem}
+  .reservas .pitch .li svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--terracota)}
+  .bkw-card{background:var(--crema-100);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,36px);box-shadow:var(--shadow)}
+  @media(max-width:860px){.reservas .inner{grid-template-columns:1fr}}
+
+  /* ---------- FOOTER ---------- */
+  .foot{background:var(--espresso);color:var(--crema-100);padding:clamp(60px,9vw,96px) 0 34px}
+  .foot .cta{text-align:center;max-width:40ch;margin:0 auto 60px}
+  .foot .cta h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.4em}
+  .foot .cta p{color:rgba(250,246,236,.8);margin-bottom:1.6em}
+  .foot .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;border-top:1px solid rgba(250,246,236,.15);padding-top:44px}
+  .foot .brand b{color:var(--crema-100)}
+  .foot h5{font-family:'Mulish',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--piedra);margin-bottom:14px}
+  .foot a.line,.foot p.line{display:block;color:rgba(250,246,236,.82);font-size:.92rem;margin-bottom:8px;transition:color .2s}
+  .foot a.line:hover{color:var(--terracota)}
+  .foot .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:44px;font-size:.76rem;color:rgba(250,246,236,.45)}
+  .foot .legal .operon{display:flex;align-items:center;gap:7px}
+  .foot .legal .operon b{font-family:'Fraunces',serif;font-style:italic;color:rgba(250,246,236,.7)}
+  @media(max-width:760px){.foot .cols{grid-template-columns:1fr;gap:28px}}
+
+  /* demo tag */
+  .demotag{
+    position:fixed;left:14px;bottom:14px;z-index:80;
+    background:rgba(43,38,34,.86);color:var(--crema-100);backdrop-filter:blur(6px);
+    font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:8px 13px;border-radius:100px;
+    display:flex;align-items:center;gap:8px;box-shadow:var(--shadow)
+  }
+  .demotag button{background:none;border:0;color:rgba(250,246,236,.6);cursor:pointer;font-size:.9rem;line-height:1}
+  .demotag .dot{width:7px;height:7px;border-radius:50%;background:var(--terracota);flex:none}
+  @media(max-width:600px){.demotag{left:10px;bottom:10px;font-size:.64rem}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav light" id="nav">
+  <a href="#top" class="brand"><b>La Pedrera</b><span>Posada</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navLinks">
+    <a href="#posada">La posada</a>
+    <a href="#deptos">Departamentos</a>
+    <a href="#altura">2790</a>
+    <a href="#zona">La zona</a>
+    <a href="#opiniones">Opiniones</a>
+    <a href="#reservas" class="btn btn-primary">Reservar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="img/fachada.jpg" alt="Posada La Pedrera, edificio de dos plantas en piedra y madera, Villa Yacanto">
+  </div>
+  <svg class="hero-ridge" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,220 L0,150 C120,120 210,168 320,140 C430,112 470,58 560,72 C650,86 690,40 760,20 C830,0 880,64 980,80 C1080,96 1140,150 1240,132 C1340,114 1400,160 1440,150 L1440,220 Z" fill="#39434A" opacity="0.92"/>
+    <path d="M0,220 L0,182 C160,168 260,196 380,180 C520,162 560,120 680,128 C800,136 860,96 980,110 C1120,126 1180,178 1320,170 C1380,166 1420,186 1440,182 L1440,220 Z" fill="#2B2622" opacity="0.9"/>
+  </svg>
+
+  <div class="altgauge" id="altgauge" aria-hidden="true">
+    <svg viewBox="0 0 180 120"><path class="contour" id="contour" d="M2,110 C34,96 44,60 70,54 C96,48 108,14 134,20 C154,24 168,44 178,40"/></svg>
+    <div class="num"><span id="altNum">0</span></div>
+    <div class="lbl">msnm · Cerro Champaquí</div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="wrap">
+      <p class="kicker rv">Villa Yacanto · Valle de Calamuchita</p>
+      <h1 class="rv">Una posada de familia al pie del Champaquí.</h1>
+      <p class="lead rv">Departamentos con cocina, pileta entre el monte y el pueblo a dos cuadras. Te reciben Nancy y Lucy.</p>
+      <div class="cta-row rv">
+        <a href="#reservas" class="btn btn-primary">Ver disponibilidad</a>
+        <a href="#zona" class="btn btn-ghost" style="color:var(--crema-100);border-color:rgba(250,246,236,.5)">Cómo llegar</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="item"><span class="st">★★★★★</span><span><b>4,5</b> en Google · 100 reseñas</span></div>
+    <div class="sep"></div>
+    <div class="item"><b>8,8</b><span>Puntuación Booking · ubicación 9,3</span></div>
+    <div class="sep"></div>
+    <div class="item"><b>100%</b><span>Recomendada en Facebook</span></div>
+    <div class="sep"></div>
+    <div class="item"><span>A 2 cuadras del centro de Villa Yacanto</span></div>
+  </div>
+</section>
+
+<!-- LA POSADA -->
+<section class="sec posada" id="posada">
+  <div class="wrap">
+    <div class="grid">
+      <div class="story">
+        <p class="kicker rv">La posada</p>
+        <h2 class="rv">Piedra, monte y una atención que se nota.</h2>
+        <p class="rv">La Pedrera es un edificio de dos plantas hecho de piedra serrana y madera, rodeado de césped y monte nativo, con las cumbres de fondo. Seis departamentos pensados para descansar de verdad: cada uno con su cocina, su baño y su lugar al aire libre.</p>
+        <p class="rv">Hay pileta de temporada con deck nuevo, parrilla, jardín y un restó propio. Y sobre todo está el trato: los huéspedes vuelven por cómo los reciben Nancy y Lucy.</p>
+        <p class="sign rv">— "Es un lugar a donde volveríamos a hospedarnos."</p>
+      </div>
+      <div class="stack rv">
+        <img class="a" src="img/depto-ventana.jpg" alt="Habitación con acolchado bordado y ventana al monte">
+        <img class="b" src="img/cocina.jpg" alt="Kitchenette equipada con anafe, heladera y pava eléctrica">
+        <div class="badge-stone">"La Pedrera" — el lugar de las piedras</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTAMENTOS -->
+<section class="sec deptos" id="deptos">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker rv">Los departamentos</p>
+      <h2 class="rv">Chicos, funcionales y con todo lo que hace falta.</h2>
+      <p class="rv">Cada depto tiene kitchenette, baño privado, aire acondicionado, ventilador de techo, TV con DirecTV y WiFi. Elegí por cuántos van.</p>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Departamentos por capacidad">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p2" id="t2">Para 2</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3">Para 3</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p4" id="t4">Familiar · 4</button>
+    </div>
+
+    <div class="panel on" id="p2" role="tabpanel" aria-labelledby="t2">
+      <div class="depto spot rv">
+        <div class="ph"><img src="img/cama-aguayo.jpg" alt="Departamento para dos con cama matrimonial y manta de sierra"></div>
+        <div class="body">
+          <h3>Departamento para 2</h3>
+          <p class="cap">Hasta 2 huéspedes · cama matrimonial</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Kitchenette: heladera, anafe de 2 hornallas, pava eléctrica y vajilla</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Baño privado con agua caliente</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Aire acondicionado, ventilador de techo y calefacción</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Terraza o galería propia con vista al jardín</li>
+          </ul>
+          <p class="note">Nombres y distribución exactos a confirmar con la posada.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
+      <div class="depto spot rv">
+        <div class="ph"><img src="img/depto-twin.jpg" alt="Departamento para tres con cama matrimonial y cama individual"></div>
+        <div class="body">
+          <h3>Departamento para 3</h3>
+          <p class="cap">Hasta 3 huéspedes · matrimonial + individual</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Cocina completa para cocinarse los días de estadía</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Baño privado y ropa blanca incluida</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Aire, calefacción y TV con DirecTV</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Acceso a pileta, parrilla y jardín</li>
+          </ul>
+          <p class="note">Nombres y distribución exactos a confirmar con la posada.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4">
+      <div class="depto spot rv">
+        <div class="ph"><img src="img/depto-cucheta.jpg" alt="Departamento familiar con cama matrimonial y cucheta"></div>
+        <div class="body">
+          <h3>Departamento familiar</h3>
+          <p class="cap">Hasta 4 huéspedes · matrimonial + cucheta</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Cucheta para los chicos y matrimonial aparte</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Kitchenette completa: ideal para venir con bebé (hay hasta lo necesario para cocinarle)</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Baño privado, aire y calefacción</li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Apto para niños de todas las edades</li>
+          </ul>
+          <p class="note">Nombres y distribución exactos a confirmar con la posada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2790 -->
+<section class="sec altura" id="altura">
+  <div class="wrap">
+    <div class="grid">
+      <div class="rv">
+        <div class="bignum">2790<small>metros sobre el mar</small></div>
+      </div>
+      <div>
+        <p class="kicker rv" style="color:var(--terracota-300)">2790 · Cocina de Altura</p>
+        <h2 class="rv">El restó está en la misma posada.</h2>
+        <p class="rv">2790 es la altura del Champaquí, el pico más alto de Córdoba — y el nombre del restaurante de la casa. Cocina argentina de montaña, ahí nomás de tu departamento: no hace falta salir a buscar dónde comer.</p>
+        <div class="meals rv">
+          <span>Desayuno</span><span>Almuerzo</span><span>Merienda</span><span>Cena</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONA -->
+<section class="sec zona" id="zona">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">La zona</p>
+      <h2>Villa Yacanto, Pueblo Mágico.</h2>
+      <p>Uno de los pueblos más tranquilos de Calamuchita, con el cordón del Champaquí de fondo y el arroyo a pocos metros.</p>
+    </div>
+    <div class="top">
+      <div class="ph rv"><img src="img/zona-champaqui.jpg" alt="Cumbre del Cerro Champaquí, sierras de Córdoba"></div>
+      <div class="cards rv">
+        <div class="zcard"><h4>Trekking al Champaquí</h4><p>La subida al techo de Córdoba arranca en la zona. Cabalgatas y caminatas de día completo.</p><span class="dist">Cumbre a 2790 m</span></div>
+        <div class="zcard"><h4>Arroyo y balneario</h4><p>Agua de sierra, piedras planas y sombra de sauces para pasar la tarde.</p><span class="dist">A pocos minutos</span></div>
+        <div class="zcard"><h4>El centro a pie</h4><p>Almacenes, panadería y ferias artesanales sin sacar el auto.</p><span class="dist">2 cuadras</span></div>
+        <div class="zcard"><h4>Villa General Belgrano</h4><p>La Oktoberfest y el circuito de Calamuchita, para una escapada de un día.</p><span class="dist">~40 min</span></div>
+      </div>
+    </div>
+    <div class="map-embed rv">
+      <iframe title="Ubicación de Posada La Pedrera en Villa Yacanto" loading="lazy"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-64.7520%2C-32.1360%2C-64.7240%2C-32.1170&layer=mapnik&marker=-32.1266%2C-64.7378"></iframe>
+      <a class="map-cta" href="https://maps.app.goo.gl/tL4ATMeyfu1YA2Sr6" target="_blank" rel="noopener">Ver en Google Maps ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria" id="galeria">
+  <div class="sec-head rv">
+    <p class="kicker">Galería</p>
+    <h2>La posada, por dentro y por fuera.</h2>
+  </div>
+  <div class="marquee">
+    <div class="mrow" id="mrowA">
+      <img src="img/fachada.jpg" alt="Fachada de la posada"><img src="img/depto-ventana.jpg" alt="Habitación con acolchado bordado"><img src="img/cocina.jpg" alt="Cocina del departamento"><img src="img/cama-aguayo.jpg" alt="Cama con manta de sierra"><img src="img/depto-twin.jpg" alt="Habitación para tres"><img src="img/bano.jpg" alt="Baño privado">
+    </div>
+    <div class="mrow rev" id="mrowB">
+      <img src="img/depto-cucheta.jpg" alt="Habitación familiar con cucheta"><img src="img/zona-calamuchita.jpg" alt="Lago en Calamuchita"><img src="img/zona-champaqui.jpg" alt="Cerro Champaquí"><img src="img/bano2.jpg" alt="Baño privado del departamento"><img src="img/depto-ventana.jpg" alt="Dormitorio con vista"><img src="img/fachada.jpg" alt="Exterior de la posada">
+    </div>
+  </div>
+</section>
+
+<!-- OPINIONES -->
+<section class="sec opiniones" id="opiniones">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Opiniones</p>
+      <h2>Lo que dicen los que ya se quedaron.</h2>
+      <p>Reseñas reales de huéspedes en Booking.</p>
+    </div>
+    <div class="op-grid">
+      <div class="op rv">
+        <div class="st">★★★★★</div>
+        <q>La ubicación, lo completas y cómodas que son. La atención de sus dueños. Tiene una vista hermosa.</q>
+        <div class="who">Eliana</div><div class="src">Booking · Argentina</div>
+      </div>
+      <div class="op rv">
+        <div class="st">★★★★★</div>
+        <q>El lugar es muy lindo y está muy cuidado. Tiene todo lo necesario. La atención del dueño y la de su hijo fue muy cálida. Volveríamos a hospedarnos.</q>
+        <div class="who">Fabricio</div><div class="src">Booking · Argentina</div>
+      </div>
+      <div class="op rv">
+        <div class="st">★★★★★</div>
+        <q>Súper tranquilo, las instalaciones están nuevas. La atención por parte de los dueños y empleados, excelente.</q>
+        <div class="who">Germán</div><div class="src">Booking · Argentina</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Antes de reservar</p>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="acc rv" id="acc">
+      <div class="acc-item">
+        <button class="acc-q">¿Cuál es el horario de check-in y check-out?</button>
+        <div class="acc-a"><p>Ingreso de 15 a 18 h y salida de 8 a 11 h. Si llegás fuera de ese horario, coordinás con Nancy o Lucy y lo resuelven.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-q">¿Se puede ir con mascota?</button>
+        <div class="acc-a"><p>Por ahora la posada no recibe mascotas.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-q">¿Hay estacionamiento?</button>
+        <div class="acc-a"><p>Sí, estacionamiento sin cargo. Es sobre la calle, en una zona tranquila del pueblo.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-q">¿Cómo llego desde Córdoba o Buenos Aires?</button>
+        <div class="acc-a"><p>Villa Yacanto está sobre la Ruta Provincial S228. Desde Córdoba capital son unas 2 horas por la ruta de Calamuchita; desde Buenos Aires, la traza pasa por Río Cuarto o por Villa General Belgrano. La posada está a dos cuadras del centro.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-q">¿Incluye desayuno?</button>
+        <div class="acc-a"><p>El desayuno se toma aparte en el restó 2790, que está en la misma posada. Cada departamento además tiene cocina propia.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVAS -->
+<section class="sec reservas" id="reservas">
+  <div class="wrap">
+    <div class="inner">
+      <div class="pitch">
+        <p class="kicker rv">Reservá tu estadía</p>
+        <h2 class="rv">Elegí tus fechas y bloqueá el depto.</h2>
+        <p class="rv">Sin esperar la respuesta de un WhatsApp. Mirás disponibilidad, cargás tus datos y listo — Nancy y Lucy sólo confirman.</p>
+        <div class="rv">
+          <div class="li"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Disponibilidad a la vista, a cualquier hora</span></div>
+          <div class="li"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reservás con una seña y el resto lo pagás al llegar</span></div>
+          <div class="li"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Recibís un código de reserva al instante</span></div>
+        </div>
+      </div>
+      <div class="bkw-card rv">
+        <!-- ===== OPERON RESERVAS · WIDGET DEMO ===== -->
+        <style>
+          .bkw{
+            --bkw-primary:#A9502E;
+            --bkw-accent:#8F3F21;
+            --bkw-bg:#FFFDF8;
+            --bkw-bg-2:#EFE5D3;
+            --bkw-text:#2B2622;
+            --bkw-text-soft:#6B5F50;
+            --bkw-white:#FAF6EC;
+            --bkw-line:rgba(43,38,34,.16);
+            --bkw-radius:12px;
+            --bkw-font-display:'Fraunces',Georgia,serif;
+            --bkw-font-body:'Mulish',system-ui,sans-serif;
+          }
+          .bkw{font-family:var(--bkw-font-body);color:var(--bkw-text)}
+          .bkw *{box-sizing:border-box}
+          .bkw-demo-badge{display:inline-block;background:var(--bkw-accent);color:var(--bkw-white);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:12px}
+          .bkw h3{font-family:var(--bkw-font-display);font-size:1.35rem;margin-bottom:4px}
+          .bkw .mini{color:var(--bkw-text-soft);font-size:.88rem;margin-bottom:16px}
+          .bkw .field{margin-bottom:14px}
+          .bkw .field label{display:block;font-size:.8rem;font-weight:700;margin-bottom:5px}
+          .bkw .field input,.bkw .field select,.bkw .field textarea{width:100%;padding:12px 14px;border-radius:11px;border:1.5px solid var(--bkw-line);font-family:inherit;font-size:.94rem;background:var(--bkw-bg);color:var(--bkw-text)}
+          .bkw .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+          .bkw .btn-primary{width:100%;justify-content:center;display:flex;align-items:center;gap:8px;background:var(--bkw-primary);color:var(--bkw-white);border:none;border-radius:100px;padding:14px;font-weight:700;font-size:.95rem;cursor:pointer;transition:transform .2s}
+          .bkw .btn-primary:hover{transform:translateY(-2px)}
+          .bkw .btn-primary:disabled{opacity:.6;cursor:default;transform:none}
+          .bkw .btn-wa{width:100%;justify-content:center;display:flex;align-items:center;gap:8px;background:#25D366;color:#0b3d24;border:none;border-radius:100px;padding:14px;font-weight:700;font-size:.95rem;cursor:pointer;text-decoration:none}
+          .bkw .bk-back{background:none;border:none;color:var(--bkw-text-soft);font-size:.85rem;font-weight:600;cursor:pointer;padding:0;margin-bottom:14px}
+          .bkw .bk-summary{background:var(--bkw-bg-2);border-radius:11px;padding:12px 15px;font-size:.9rem;margin-bottom:16px}
+          .bkw .bk-summary b{font-family:var(--bkw-font-display)}
+          .bkw .bk-unit{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1.5px solid var(--bkw-line);border-radius:13px;padding:15px;margin-bottom:11px;transition:border-color .2s}
+          .bkw .bk-unit:hover{border-color:var(--bkw-accent)}
+          .bkw .bk-unit h4{font-family:var(--bkw-font-display);font-size:1.05rem;margin-bottom:2px}
+          .bkw .bk-unit small{color:var(--bkw-text-soft);font-size:.82rem;display:block}
+          .bkw .bk-unit .price{font-family:var(--bkw-font-display);font-weight:700;color:var(--bkw-primary);font-size:1.1rem;white-space:nowrap}
+          .bkw .bk-unit .price-soft{font-family:var(--bkw-font-body);font-weight:600;color:var(--bkw-text-soft);font-size:.85rem;white-space:nowrap}
+          .bkw .bk-unit .btn-primary{padding:9px 16px;font-size:.83rem;width:auto;margin-top:6px}
+          .bkw .bk-empty{text-align:center;color:var(--bkw-text-soft);font-size:.9rem;padding:18px;border:1.5px dashed var(--bkw-line);border-radius:12px}
+          .bkw .bk-done{text-align:center;padding:6px 0}
+          .bkw .bk-done .ok{width:52px;height:52px;border-radius:50%;background:var(--bkw-bg-2);color:var(--bkw-primary);display:grid;place-items:center;margin:0 auto 10px}
+          .bkw .bk-done .ok svg{width:26px;height:26px}
+          .bkw .bk-code{font-family:var(--bkw-font-display);font-size:1.5rem;font-weight:700;background:var(--bkw-bg-2);border-radius:11px;padding:9px 18px;display:inline-block;margin:8px 0;letter-spacing:.03em}
+          .bkw .bk-price{background:var(--bkw-bg-2);border-radius:11px;padding:12px 16px;margin:12px 0 0;text-align:left;font-size:.87rem}
+          .bkw .bk-price div{display:flex;justify-content:space-between;gap:14px;padding:3px 0}
+          .bkw .bk-price dt{color:var(--bkw-text-soft)}
+          .bkw .bk-price dd{font-weight:700;font-family:var(--bkw-font-display)}
+          .bkw .bk-note{font-size:.78rem;color:var(--bkw-text-soft);font-style:italic;margin-top:12px;line-height:1.4}
+          .bkw .bk-msg{font-size:.85rem;margin-top:10px;min-height:1em}
+          .bkw .bk-msg.err{color:#b3402e}
+          .bkw .bk-spin{opacity:.7;pointer-events:none}
+        </style>
+
+        <div class="bkw" id="bkw-root">
+          <span class="bkw-demo-badge">Vista previa · demo</span>
+          <div id="bkw-panel-online">
+            <div id="bkw-step-search">
+              <h3>Consultá disponibilidad y reservá con seña</h3>
+              <p class="mini">Disponibilidad en tiempo real — reservá al instante, sin esperar respuesta.</p>
+              <div class="field-row">
+                <div class="field"><label for="bkw-in">Llegada</label><input id="bkw-in" type="date"></div>
+                <div class="field"><label for="bkw-out">Salida</label><input id="bkw-out" type="date"></div>
+              </div>
+              <div class="field"><label for="bkw-pax">Huéspedes</label>
+                <select id="bkw-pax">
+                  <option value="1">1 persona</option><option value="2" selected>2 personas</option>
+                  <option value="3">3 personas</option><option value="4">4 personas</option>
+                  <option value="5">5 personas</option><option value="6">6 personas</option>
+                </select>
+              </div>
+              <button class="btn-primary" id="bkw-search" type="button">Ver disponibilidad</button>
+            </div>
+            <div id="bkw-step-results" style="display:none"></div>
+            <div id="bkw-step-form" style="display:none"></div>
+            <div id="bkw-step-done" style="display:none"></div>
+            <p class="bk-msg" id="bkw-msg"></p>
+          </div>
+        </div>
+
+        <script>
+        (function(){
+          "use strict";
+          var CONFIG = {
+            WA_NUMBER: '5491161457381',
+            SHOW_EXAMPLE_PRICES: false,
+            UNITS: [
+              { name: 'Departamento para 2', capacity: 2 },
+              { name: 'Departamento para 3', capacity: 3 },
+              { name: 'Departamento familiar', capacity: 4 }
+            ]
+          };
+          var WA_NUM = CONFIG.WA_NUMBER;
+          var SHOW_PRICES = !!CONFIG.SHOW_EXAMPLE_PRICES;
+          var $ = function(id){ return document.getElementById(id); };
+          function money(n){ return '$ ' + Number(n).toLocaleString('es-AR', {maximumFractionDigits:0}); }
+          function iso(d){ var z=new Date(d.getTime()-d.getTimezoneOffset()*60000); return z.toISOString().slice(0,10); }
+          function addDays(s,n){ var d=new Date(s+'T00:00:00'); d.setDate(d.getDate()+n); return iso(d); }
+          function nights(a,b){ return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000); }
+          function fakeCode(){ var s=''; var A='ABCDEFGHJKLMNPQRSTUVWXYZ0123456789'; for(var i=0;i<6;i++){ s+=A[Math.floor(Math.random()*A.length)]; } return 'DEMO-'+s; }
+          var state = { in:'', out:'', pax:2, unit:null };
+          var today = iso(new Date());
+          $('bkw-in').min = today; $('bkw-out').min = addDays(today,1);
+          $('bkw-in').value = addDays(today,14); $('bkw-out').value = addDays(today,16);
+          $('bkw-in').addEventListener('change', function(){ $('bkw-out').min = addDays($('bkw-in').value||today, 1); });
+          var steps = { search:$('bkw-step-search'), results:$('bkw-step-results'), form:$('bkw-step-form'), done:$('bkw-step-done') };
+          function show(step){ for(var k in steps){ steps[k].style.display = (k===step)?'':'none'; } }
+          var msg = $('bkw-msg');
+          function say(text, cls){ msg.textContent = text||''; msg.className = 'bk-msg' + (cls?(' '+cls):''); }
+          $('bkw-search').addEventListener('click', function(){
+            var ci=$('bkw-in').value, co=$('bkw-out').value, pax=parseInt($('bkw-pax').value,10)||1;
+            say('');
+            if(!ci || !co){ say('Elegí las fechas de llegada y salida.', 'err'); return; }
+            if(co <= ci){ say('La salida tiene que ser posterior a la llegada.', 'err'); return; }
+            state.in=ci; state.out=co; state.pax=pax;
+            var btn=this; btn.classList.add('bk-spin'); btn.textContent='Buscando…';
+            setTimeout(function(){
+              var avail = CONFIG.UNITS.filter(function(u){ return u.capacity >= pax; });
+              renderResults(avail);
+              btn.classList.remove('bk-spin'); btn.textContent='Ver disponibilidad';
+            }, 550);
+          });
+          function unitPriceLine(u, n){
+            if(SHOW_PRICES){
+              var total = Number(u.price_per_night) * n;
+              return '<div style="text-align:right"><div class="price">'+money(total)+'</div><small>'+money(u.price_per_night)+'/noche · ejemplo</small><button class="btn-primary" data-name="'+encodeURIComponent(u.name)+'">Reservar</button></div>';
+            }
+            return '<div style="text-align:right"><div class="price-soft">Consultar tarifa</div><button class="btn-primary" data-name="'+encodeURIComponent(u.name)+'">Reservar</button></div>';
+          }
+          function renderResults(units){
+            var n = nights(state.in, state.out);
+            var html = '<button class="bk-back" id="bkw-back1">&larr; Cambiar fechas</button><div class="bk-summary">'+state.in+' &rarr; '+state.out+' · <b>'+n+' noche'+(n>1?'s':'')+'</b> · '+state.pax+' huésped'+(state.pax>1?'es':'')+'</div>';
+            if(!units.length){
+              html += '<div class="bk-empty">No hay departamentos para esa cantidad de huéspedes. Probá con otras fechas o escribinos por WhatsApp.</div>';
+            } else {
+              units.forEach(function(u){
+                html += '<div class="bk-unit"><div><h4>'+u.name+'</h4><small>Hasta '+u.capacity+' huéspedes</small></div>'+unitPriceLine(u, n)+'</div>';
+              });
+            }
+            steps.results.innerHTML = html; show('results');
+            $('bkw-back1').addEventListener('click', function(){ show('search'); say(''); });
+            Array.prototype.forEach.call(steps.results.querySelectorAll('button[data-name]'), function(b){
+              b.addEventListener('click', function(){ state.unit = { name:decodeURIComponent(b.getAttribute('data-name')) }; renderForm(); });
+            });
+          }
+          function renderForm(){
+            var n = nights(state.in, state.out);
+            steps.form.innerHTML = '<button class="bk-back" id="bkw-back2">&larr; Ver otros departamentos</button><div class="bk-summary"><b>'+state.unit.name+'</b> · '+state.in+' &rarr; '+state.out+' · '+n+' noche'+(n>1?'s':'')+'</div><div class="field"><label for="bkw-name">Nombre y apellido</label><input id="bkw-name" type="text" placeholder="Tu nombre" required></div><div class="field-row"><div class="field"><label for="bkw-email">Email</label><input id="bkw-email" type="email" placeholder="tu@mail.com"></div><div class="field"><label for="bkw-phone">Teléfono / WhatsApp</label><input id="bkw-phone" type="text" placeholder="+54 9…"></div></div><div class="field"><label for="bkw-notes">Comentarios (opcional)</label><textarea id="bkw-notes" placeholder="Llegada aproximada, cochecito de bebé, etc."></textarea></div><button class="btn-primary" id="bkw-confirm" type="button">Confirmar reserva</button><p class="mini" style="text-align:center;margin-top:10px">Vista previa — no se cobra nada ahora.</p>';
+            show('form'); say('');
+            $('bkw-back2').addEventListener('click', function(){ show('results'); say(''); });
+            $('bkw-confirm').addEventListener('click', doBooking);
+          }
+          function doBooking(){
+            var name=$('bkw-name').value.trim();
+            if(!name){ say('Ingresá tu nombre.', 'err'); return; }
+            var btn=$('bkw-confirm'); btn.classList.add('bk-spin'); btn.textContent='Confirmando…';
+            setTimeout(function(){ renderDone(fakeCode()); }, 650);
+          }
+          function renderDone(code){
+            var n = nights(state.in, state.out);
+            var wa = 'https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('¡Hola! Estoy viendo la web y quiero consultar disponibilidad del '+state.in+' al '+state.out+'.');
+            var priceHtml = '';
+            if(SHOW_PRICES){
+              var u = CONFIG.UNITS.filter(function(x){ return x.name===state.unit.name; })[0];
+              if(u){
+                var total = Number(u.price_per_night)*n;
+                priceHtml = '<dl class="bk-price"><div><dt>Total (ejemplo)</dt><dd>'+money(total)+'</dd></div><div><dt>Seña de ejemplo (30%)</dt><dd>'+money(Math.round(total*0.30))+'</dd></div></dl>';
+              }
+            }
+            steps.done.innerHTML = '<div class="bk-done"><div class="ok"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>¡Así se vería tu reserva!</h3><p class="mini">En el sistema real, acá el huésped recibe su código y puede pagar la seña online.</p><div class="bk-code">'+code+'</div><p class="mini">'+state.unit.name+' · '+state.in+' &rarr; '+state.out+'</p>'+priceHtml+'<a class="btn-wa" style="margin-top:10px;text-decoration:none" href="'+wa+'" target="_blank" rel="noopener">Consultar por WhatsApp</a><button class="bk-back" id="bkw-again" style="margin-top:14px">Probar de nuevo</button><p class="bk-note">Vista previa del sistema de reservas de Operon. Los departamentos'+(SHOW_PRICES ? ', precios y' : ' y')+' el código son de ejemplo — no son datos reales. Al confirmar el proyecto se conecta al motor real con disponibilidad, cobro de seña y panel del dueño.</p></div>';
+            show('done'); say('');
+            $('bkw-again').addEventListener('click', function(){ state.unit=null; show('search'); });
+          }
+        })();
+        </script>
+        <!-- ===== /OPERON RESERVAS ===== -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" id="contacto">
+  <div class="wrap">
+    <div class="cta rv">
+      <h2>¿Reservás tus días en La Pedrera?</h2>
+      <p>Escribile a Nancy o a Lucy y te cuentan disponibilidad, o usá la reserva online de acá arriba.</p>
+      <a class="btn btn-wa" href="https://wa.me/5491161457381?text=%C2%A1Hola!%20Vi%20la%20web%20de%20Posada%20La%20Pedrera%20y%20quiero%20consultar%20disponibilidad." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+    <div class="cols">
+      <div>
+        <a href="#top" class="brand"><b>La Pedrera</b><span>Posada</span></a>
+        <p class="line" style="margin-top:14px">Villa Yacanto, Valle de Calamuchita,<br>Córdoba, Argentina.</p>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <a class="line" href="https://wa.me/5491161457381" target="_blank" rel="noopener">WhatsApp · Lucy</a>
+        <a class="line" href="tel:+5493546482090">Tel · Nancy 03546 48-2090</a>
+        <a class="line" href="https://www.instagram.com/_posadalapedrera_/" target="_blank" rel="noopener">Instagram</a>
+        <a class="line" href="https://www.facebook.com/lapedreravillayacanto/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <div>
+        <h5>La posada</h5>
+        <a class="line" href="#deptos">Departamentos</a>
+        <a class="line" href="#altura">Restó 2790</a>
+        <a class="line" href="#zona">La zona</a>
+        <a class="line" href="#reservas">Reservar</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr"></span> Posada La Pedrera · Villa Yacanto</span>
+      <span class="operon">Demo hecha por <b>Operon</b></span>
+    </div>
+  </div>
+</footer>
+
+<div class="demotag" id="demotag">
+  <span class="dot"></span> Vista previa — demo de Operon para Posada La Pedrera
+  <button id="demotagX" aria-label="Cerrar">✕</button>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  /* ---- NAV ---- */
+  var nav = $('#nav');
+  var hero = $('#top');
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle('solid', y > 40);
+    nav.classList.toggle('light', y < (hero.offsetHeight - 90));
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  var toggle = $('#navToggle');
+  toggle.addEventListener('click', function(){ document.body.classList.toggle('menu-open'); });
+  $$('#navLinks a').forEach(function(a){ a.addEventListener('click', function(){ document.body.classList.remove('menu-open'); }); });
+
+  /* ---- REVEAL (IO para el efecto + failsafe por scroll: nada queda en opacity 0) ---- */
+  var rvs = $$('.rv');
+  function sweepReveal(buffer){
+    buffer = buffer || 120;
+    for(var i=rvs.length-1;i>=0;i--){
+      var el = rvs[i];
+      if(el.classList.contains('in')) continue;
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight + buffer && r.bottom > -buffer){ el.classList.add('in'); }
+    }
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.05});
+    rvs.forEach(function(el){ io.observe(el); });
+    var rvTick = false;
+    window.addEventListener('scroll', function(){
+      if(rvTick) return; rvTick = true;
+      requestAnimationFrame(function(){ sweepReveal(); rvTick = false; });
+    }, {passive:true});
+    window.addEventListener('load', function(){ setTimeout(function(){ sweepReveal(400); }, 200); });
+    setTimeout(function(){ sweepReveal(0); }, 1400);
+  } else {
+    rvs.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- ALTITUDE GAUGE (contorno + contador) ---- */
+  var contour = $('#contour');
+  var altNum = $('#altNum');
+  var gauge = $('#altgauge');
+  var done = false;
+  if(contour){
+    var len = contour.getTotalLength();
+    contour.style.strokeDasharray = len;
+    contour.style.strokeDashoffset = len;
+  }
+  function runGauge(){
+    if(done) return; done = true;
+    if(contour){
+      contour.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1)';
+      requestAnimationFrame(function(){ contour.style.strokeDashoffset = 0; });
+    }
+    var target = 2790, start = null, dur = 1900;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var eased = 1 - Math.pow(1-p, 3);
+      altNum.textContent = Math.round(eased*target).toLocaleString('es-AR');
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && gauge){
+    var gio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) runGauge(); });
+    }, {threshold:0.4});
+    gio.observe(gauge);
+  }
+  setTimeout(runGauge, 2600);
+  var ridge = $('.hero-ridge');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y < window.innerHeight && ridge){ ridge.style.transform = 'translateY(' + (y*0.12) + 'px)'; }
+  }, {passive:true});
+
+  /* ---- TABS departamentos ---- */
+  var tabs = $$('.tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      tab.setAttribute('aria-selected','true');
+      $$('.panel').forEach(function(p){ p.classList.remove('on'); });
+      var panel = document.getElementById(tab.getAttribute('aria-controls'));
+      panel.classList.add('on');
+      $$('.rv', panel).forEach(function(el){ el.classList.add('in'); });
+    });
+  });
+
+  /* ---- MAGIC CARD spotlight ---- */
+  $$('.spot').forEach(function(card){
+    card.addEventListener('pointermove', function(e){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* ---- ACCORDION ---- */
+  $$('#acc .acc-item').forEach(function(item){
+    var q = $('.acc-q', item), a = $('.acc-a', item);
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      $$('#acc .acc-item').forEach(function(i){ i.classList.remove('open'); $('.acc-a',i).style.maxHeight = null; });
+      if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  /* ---- MARQUEE: duplicar contenido para loop continuo ---- */
+  ['#mrowA','#mrowB'].forEach(function(sel){
+    var row = $(sel);
+    if(row){
+      var clone = row.cloneNode(true);
+      while(clone.firstChild){ row.appendChild(clone.firstChild); }
+    }
+  });
+
+  /* ---- misc ---- */
+  $('#yr').textContent = new Date().getFullYear();
+  var dt = $('#demotag');
+  $('#demotagX').addEventListener('click', function(){ dt.style.display='none'; });
+})();
+</script>
+</body>
+</html>
